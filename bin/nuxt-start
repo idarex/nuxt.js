@@ -18,6 +18,9 @@ options.dev = false // Force production mode (no webpack middlewares called)
 
 var nuxt = new Nuxt(options)
 
+const manifest = require(resolve(rootDir, '.nuxt', 'manifest.json'));
+nuxt.options.manifest = manifest;
+
 new nuxt.Server(nuxt)
 .listen(
   process.env.PORT || process.env.npm_package_config_nuxt_port,
